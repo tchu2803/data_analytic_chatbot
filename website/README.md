@@ -69,9 +69,12 @@ npm run dev
 
 ### Backend Flask
 ```bash
-cd mcp-server
+cd mcp-client
 python main.py
 ```
+```bash
+cd mcp-server
+py server.py
 API chạy tại `http://localhost:5000`.
 
 ### Backend Laravel
