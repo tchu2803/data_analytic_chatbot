@@ -1,0 +1,19 @@
+Cải thiện trải nghiệm người dùng:
+Optimistic update an toàn hơn: Trong handleSendMessage, lưu trữ trạng thái tin nhắn tạm thời và chỉ xóa khi nhận được phản hồi thành công từ server, đồng thời hiển thị trạng thái "đang gửi" rõ ràng hơn.
+Tự động cuộn danh lịch tin nhắn: Trong MessageList, thêm logic để tự động cuộn xuống tin nhắn mới nhất khi danh sách tin nhắn được cập nhật.
+Xác nhận xóa cuộc trò chuyện: Trong handleDeleteConversation, thêm hộp thoại xác nhận trước khi xóa để tránh thao tác không mong muốn.
+Cải thiện quản lý trạng thái:
+Cân nhắc sử dụng thư viện trạng thái như Redux hoặc Zustand để quản lý trạng thái toàn cục thay vì chỉ sử dụng useReducer trong ClaudeInterface, đặc biệt nếu ứng dụng mở rộng thêm.
+Tách useChat hook thành các hook nhỏ hơn để quản lý từng khía cạnh (ví dụ: useMessages, useSendMessage) nhằm tăng tính tái sử dụng.
+Tối ưu SEO và accessibility:
+Thêm các thuộc tính ARIA (như aria-label, aria-describedby) vào các nút và input để hỗ trợ người dùng khuyết tật.
+Đảm bảo các trang như Login, Register, ResetPassword có meta tags phù hợp để hỗ trợ SEO. Tối ưu hiệu suất giao diện:
+Dynamic item size trong MessageList: Sử dụng react-window với VariableSizeList thay vì FixedSizeList để hỗ trợ tin nhắn có chiều cao khác nhau.
+Lazy loading: Chỉ tải tin nhắn của cuộc trò chuyện được chọn thay vì gọi fetchAllConversationMessages cho tất cả các cuộc trò chuyện.
+Debounce thêm: Áp dụng debounce cho các sự kiện khác như click vào conversation để tránh gọi fetchConversationDetail quá nhiều lần.Kiểm tra token: Thêm middleware hoặc interceptor trong api để kiểm tra token hết hạn và tự động làm mới (refresh token) hoặc chuyển hướng về /login.
+Thông báo lỗi rõ ràng: Trong ResetPassword, nếu id không hợp lệ, hiển thị thông báo lỗi cụ thể trước khi chuyển hướng.
+Kiểm tra dữ liệu API: Trong ConversationList, nếu conversations không phải mảng, hiển thị thông báo lỗi cho người dùng thay vì chỉ trả về mảng rỗng.
+Tối ưu quản lý API:
+Caching: Sử dụng thư viện như react-query hoặc SWR để cache kết quả API (fetchConversations, fetchConversationDetail), giảm số lần gọi API không cần thiết.
+Rate limiting: Trong fetchAllConversationMessages, thêm giới hạn số lượng request đồng thời (ví dụ: sử dụng p-limit hoặc chia nhỏ các yêu cầu).
+Retry mechanism: Thêm cơ chế thử lại khi API thất bại (ví dụ: sử dụng axios-retry) với số lần thử giới hạn.

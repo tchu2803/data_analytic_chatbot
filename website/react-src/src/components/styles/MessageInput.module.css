@@ -1,0 +1,42 @@
+.inputContainer {
+  border-top: 1px solid #dee2e6;
+  background: white;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.messageInput {
+  border: 1px solid #ced4da;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  resize: none;
+  min-height: 52px;
+  max-height: 128px;
+  flex-grow: 1;
+}
+
+.messageInput:focus {
+  border-color: #fd7e14;
+  box-shadow: 0 0 0 0.2rem rgba(253, 126, 20, 0.25);
+}
+
+.sendButton {
+  background-color: #fd7e14;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  color: white;
+  transition: all 0.2s;
+}
+
+.sendButton:hover:not(:disabled) {
+  background-color: #e8630e;
+}
+
+.sendButton:disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+}

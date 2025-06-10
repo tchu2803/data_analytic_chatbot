@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.mainContent {
+  /* Giảm width xuống, để lại chỗ cho sidebar */
+  flex: 0 0 80%; /* Hoặc có thể dùng max-width: 800px; */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-width: 0;
+  overflow: hidden;
+  /* Căn giữa nội dung */
+  margin: 0 auto;
+}
+
+
+/* Hoặc nếu muốn giới hạn width cố định thay vì flex */
+.mainContentFixed {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-width: 0;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mainContent {
+    flex: 1;
+    max-width: none;
+  }
+  
+  .sidebar {
+    display: none; /* Ẩn sidebar trên mobile */
+  }
+}
